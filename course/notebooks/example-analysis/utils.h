@@ -10,6 +10,7 @@ float scale(unsigned int slot, const ROOT::RDF::RSampleInfo &id)
     return id.Contains("mc_363490.llll.4lep.root") ? 1.3f : 1.0f;
 }
 
+// Note that the type refers to the PDG number which describes the particle. In this example, we are dealing with leptons - type 11 encodes an electron (or positron), type 13 is for muon or antimuon.  
 bool GoodElectronsAndMuons(const ROOT::RVecI &type, const ROOT::RVecF &pt, const ROOT::RVecF &eta, const ROOT::RVecF &phi, const ROOT::RVecF &e, const ROOT::RVecF &trackd0pv, const ROOT::RVecF &tracksigd0pv, const ROOT::RVecF &z0)
 {
     for (size_t i = 0; i < type.size(); i++)
