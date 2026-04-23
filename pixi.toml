@@ -1,0 +1,31 @@
+[workspace]
+channels = ["conda-forge"]
+name = "ROOTAdvancedCourse"
+platforms = ["linux-64", "osx-arm64"]
+version = "0.1.0"
+
+[tasks.notebooks]
+description = "Launch Jupyter Lab"
+cmd = "jupyter lab ./course/notebooks/"
+default-environment = "jupyter"
+
+[tasks.start]
+depends-on = ["notebooks"]
+
+[dependencies]
+root_base = ">=6.38.4,<7"
+pyspark = ">=4.1.1,<5"
+dask = ">=2026.3.0,<2027"
+distributed = ">=2026.3.0,<2027"
+mplhep = ">=1.1.2,<2"
+seaborn = ">=0.13.2,<0.14"
+awkward = ">=2.9.0,<3"
+# binder compatability
+python = "3.13.*"
+
+[feature.jupyter.dependencies]
+notebook = ">=7.5.5,<8"
+jupyterlab = ">=4.5.6,<5"
+
+[environments]
+jupyter = ["jupyter"]
